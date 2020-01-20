@@ -1,0 +1,72 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+
+using namespace std;
+
+int main()
+{
+    char* locale = setlocale(LC_ALL, "");
+    printf("Для произвольного значения х с выводом промежуточных результатов\n");
+    printf("1 P1(x)=-324.5x^4+893.4x^3-32.6x\n");
+    printf("2 P2(x)=4324249x^2+2987456x-3.01x^7\n");
+    printf("Author: Zagitbaev Ruslan \n");
+    printf("Формат ввода: +-ddd.ddd\n");
+    printf("Введите значение х:");
+
+
+    // (-324.5x^2+893.4)x^2-32.6)x
+
+    double x;
+    printf("Enter X: \n");
+    scanf("%f", &x);
+
+    printf("-324.5x^2+893.4)x^2-32.6)x \n");
+
+    // part1_1 = (-324.5x^2+893.4)
+    double part1_1 = -324.5 * x * x + 893.4;
+    printf("Part 1: %lf \n", part1_1);
+
+    // part1_2 = x* x * part1
+    double part1_2 = x * x * part1_1;
+    printf("Part 2: %lf \n", part1_2);
+
+    // part1_3 = part1_2 -32.6
+    double part1_3 = part1_2 - 32.6;
+    printf("Part 3: %lf \n", part1_3);
+
+    // part1_4 = x * x* part1_3
+    double part1_4 = x * x * part1_3;
+    printf("Part 4: %lf \n", part1_4);
+
+    printf("First polinome result: %lf \n\n", part1_4);
+
+    // ((-3.01x^5+4324249)x+2987456)x
+
+    printf("((-3.01x*x*x*x*x+4324249)x+2987456)x \n");
+
+    // part2_1 = -3.01*x*x*x*x*x+4324249
+    double part2_1 = -3.01 * x * x * x * x * x + 4324249;
+    printf("Part 1: %lf \n", part2_1);
+
+    // part2_2 = x * part2_1
+    double part2_2 = x * part2_1;
+    printf("Part 2:setw(16) %lf \n", part2_2);
+
+    // part2_3 = part2_2 + 2987456
+    double part2_3 = part2_2 + 2987456;
+    printf("Part 3: %lf \n", part2_3);
+
+    // part2_4 = x * part2_3
+    double part2_4 = x * part2_3;
+    printf("Part 4: %lf \n", part2_4);
+
+    printf("Second polinome result: %lf \n\n", part2_4);
+
+    double division = part1_4 / part2_4;
+
+    printf("Final result: %lf", division);
+
+    return 0;
+}
